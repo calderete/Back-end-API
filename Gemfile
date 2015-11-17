@@ -28,6 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry'
 # So front end can talk to us
 gem 'rack-cors'
+# So I can keep stuff safe
+gem 'dotenv-rails'
+gem 'foreman'
 
 
 
