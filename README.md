@@ -6,11 +6,9 @@ This is the API for a web application that facilitates the splitting up of bills
 
 #Table of Contents
 * [Authentication](#authenticate)
-
-
-
+* [Get Single Bill](#single_bill)
 ##Authentication <a id="authenticate"></a>
-### The authentication token must be passed in the headers as "access_token"
+### The authentication token must be passed in the headers as access_token
 
 #Register Treasurers Account
 
@@ -194,7 +192,7 @@ There are 3 methods to search for bills
 
 This will return all bills by the `assignee:` param
 
-## GET /bills/bill/:id
+#GET /bills/bill/:id <a id="single_bill"></a>
 
 **Params**
 
