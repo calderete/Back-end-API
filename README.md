@@ -161,11 +161,11 @@ If bill is created you will receive a status code 201 and
   },
 ```
 
-#Search Bills
+##Search Bills
 
 There are 3 methods to search for bills
 
-## GET /bills/:treasurer_id <a id="all_bills"></a>
+###GET `/bills/:treasurer_id` <a id="all_bills"></a>
 
 **Params**
 
@@ -196,7 +196,7 @@ There are 3 methods to search for bills
 ]
 ```
 
-## GET /bills/assignee/:assignee <a id="rommates_bills"></a>
+###GET `/bills/assignee/:assignee` <a id="rommates_bills"></a>
 
 **Params**
 
@@ -204,7 +204,7 @@ There are 3 methods to search for bills
 
 This will return all bills by the `assignee:` param
 
-#GET /bills/bill/:id <a id="single_bill"></a>
+###GET `/bills/bill/:id` <a id="single_bill"></a>
 
 **Params**
 
