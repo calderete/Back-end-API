@@ -1,5 +1,15 @@
 == README
-#Authentication
+
+#Duckbills
+
+This is the API for a web application that facilitates the splitting up of bills between roommates.  The person whos name is on the bill can register as a treasurer.  They can then creat roomates and assign portions (or total amounts) of bills to them with apllicable due dates.  Anyone using this API has the option of searching by bill and by asignee.
+
+#Table of Contents
+* [Authentication](#authenticate)
+
+
+
+##Authentication <a id="authenticate"></a>
 ### The authentication token must be passed in the headers as "access_token"
 
 #Register Treasurers Account
