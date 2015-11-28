@@ -9,6 +9,7 @@ This is the API for a web application that facilitates the splitting up of bills
 2. [Create Treasurer](#register)
 3. [Create Roommates](#roommate)
 4. [Create Bills](#create_bill)
+5. [Edit Bills](#edit_bill)
 * [Get Single Bill](#single_bill)
 
 ##Authentication <a id="authenticate"></a>
@@ -16,7 +17,7 @@ This is the API for a web application that facilitates the splitting up of bills
 
 ##Register Treasurers Account <a id="register"></a>
 
-###POST '/treasurers'
+###POST `/treasurers`
 
 **Params**
 
@@ -50,7 +51,7 @@ If the treasurer could not be created you should receive status code 422 and
 
 ##Create Roomates <a id="rommate"></a>
 
-###POST '/roomates'
+###POST `/roomates`
 
 _Only treasurers can create roomates_
 
@@ -85,27 +86,26 @@ If the roomate could not be created you should receive status code 422 and
 
 #Create Bills <a id="create_bill"></a>
 
-_once rommates are created by the treasurer bills can be assigned to them
+_once rommates are created by the treasurer bills can be assigned to them_
 
-##POST '/bills/create'
+##POST `/bills/create`
 
 Only treasurers can create bills
 
 **Params**
 
-`name`: Name of bill 
-`total_balance` Total amount of bill
-`your_balance` Amount of money the roomate is paying on the bill
-`due_date` The date the bill is due
-`company` The company the bill is being paid too
-`roomate_id` The id of the roomate the bill belongs too
-`treasurer_id` The id of the treasurer that the bill belongs too
+* `name`: Name of bill 
+* `total_balance` Total amount of bill
+* `your_balance` Amount of money the roomate is paying on the bill
+* `due_date` The date the bill is due
+* `company` The company the bill is being paid too
+* `roomate_id` The id of the roomate the bill belongs too
+* `treasurer_id` The id of the treasurer that the bill belongs too
 
 If bill is created you will receive a status code 201 and 
 
 ```
-
- {
+  {
 	"name": "Bunnies"
 	"total_balance": "800"
 	"your_balance": "400"
@@ -115,18 +115,18 @@ If bill is created you will receive a status code 201 and
 	"due_date": "2012-03-27 23:53:38 UTC"
 	}
 ```
-#Edit Bills
+#Edit Bills <a id="edit_bill"></a>
 
-## PUT /bills/:id
+## PUT `/bills/:id`
 
 **Params**
 
-`your_balance:` The balance remaining on the roomates bill
-`company:` The company the bill is paid to
-`treasurer_id:` The id of whos name is on the bill
-`due_date:` The date the bill is due in `.datetime`
-`paid:` A `boolean` marking wheather or not the bill has been paid
-`assignee:` A roomate who is contributing to this bill
+* `your_balance:` The balance remaining on the roomates bill
+* `company:` The company the bill is paid to
+* `treasurer_id:` The id of whos name is on the bill
+* `due_date:` The date the bill is due in `.datetime`
+* `paid:` A `boolean` marking wheather or not the bill has been paid
+* `assignee:` A roomate who is contributing to this bill
 
 #See a treasurers roomates
 
@@ -164,7 +164,8 @@ There are 3 methods to search for bills
 
 **Params**
 
-`treasurer_id:` The id of the person whos name is on the bill `integer` and it will return an array of hashes
+* `treasurer_id:` The id of the person whos name is on the bill `integer` and it will return an array of hashes
+
 ```
 [
   {
@@ -194,7 +195,7 @@ There are 3 methods to search for bills
 
 **Params**
 
-`assignee:` The person whos bills you wish to search for
+* `assignee:` The person whos bills you wish to search for
 
 This will return all bills by the `assignee:` param
 
@@ -202,7 +203,7 @@ This will return all bills by the `assignee:` param
 
 **Params**
 
-`id` The id of the bill you wish to see `integer`
+* `id` The id of the bill you wish to see `integer`
 
 This will return json of an indivdual bill
 
