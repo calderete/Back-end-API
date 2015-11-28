@@ -26,11 +26,11 @@ Possibilities for future versions will support voting on roomates (based on paym
 
 **Params**
 
-- `living_space`: The name of the living space
-- `username`: A username must be unique
-- `name`: Treasurers first name and last name
-- `email`: An email must be unique and have an @ symbol followed by a "."
-- `password`: A password must be at least 8 characters
+- `living_space:` The name of the living space
+- `username:` A username must be unique
+- `name:` Treasurers first name and last name
+- `email:` An email must be unique and have an @ symbol followed by a "."
+- `password:` A password must be at least 8 characters
 
 **Response**
 
@@ -99,13 +99,13 @@ Only treasurers can create bills
 
 **Params**
 
-* `name`: Name of bill 
-* `total_balance` Total amount of bill
-* `your_balance` Amount of money the roomate is paying on the bill
-* `due_date` The date the bill is due
-* `company` The company the bill is being paid too
-* `roomate_id` The id of the roomate the bill belongs too
-* `treasurer_id` The id of the treasurer that the bill belongs too
+* `name:` Name of bill 
+* `total_balance:` Total amount of bill
+* `your_balance:` Amount of money the roomate is paying on the bill
+* `due_date:` The date the bill is due
+* `company:` The company the bill is being paid too
+* `roomate_id:` The id of the roomate the bill belongs too
+* `treasurer_id:` The id of the treasurer that the bill belongs too
 
 If bill is created you will receive a status code 201 and 
 
@@ -129,8 +129,8 @@ If bill is created you will receive a status code 201 and
 * `your_balance:` The balance remaining on the roomates bill
 * `company:` The company the bill is paid to
 * `treasurer_id:` The id of whos name is on the bill
-* `due_date:` The date the bill is due in `.datetime`
-* `paid:` A `boolean` marking wheather or not the bill has been paid
+* `due_date:` The date the bill is due in `:datetime`
+* `paid:` A `:boolean` marking wheather or not the bill has been paid
 * `assignee:` A roomate who is contributing to this bill
 
 ##See a treasurers roommates <a id="rommates"></a>
@@ -169,7 +169,7 @@ There are 3 methods to search for bills
 
 **Params**
 
-* `treasurer_id:` The id of the person whos name is on the bill `integer` and it will return an array of hashes
+* `treasurer_id:` The id of the person whos name is on the bill `:integer` and it will return an array of hashes
 
 ```
 [
