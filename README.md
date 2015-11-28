@@ -4,13 +4,18 @@
 
 This is the API for a web application that facilitates the splitting up of bills between roommates.  The person whos name is on the bill can register as a treasurer.  They can then creat roomates and assign portions (or total amounts) of bills to them with apllicable due dates.  Anyone using this API has the option of searching by bill and by asignee.
 
+Possibilities for future versions will support voting on roomates (based on payment history) and messaging/alerts.
+
 #Table of Contents
 1. [Authentication](#authenticate)
 2. [Create Treasurer](#register)
 3. [Create Roommates](#roommate)
 4. [Create Bills](#create_bill)
 5. [Edit Bills](#edit_bill)
-* [Get Single Bill](#single_bill)
+6. [See Rommates](#roommates)
+7. [See All Bills](#all_bills)
+8. [See a Rommates Bills](#roommates_bills)
+9. [See Single Bill](#single_bill)
 
 ##Authentication <a id="authenticate"></a>
 ### The authentication token must be passed in the headers as access_token
@@ -84,11 +89,11 @@ If the roomate could not be created you should receive status code 422 and
 	"Email has already been taken", Username has already been taken]
 }
 
-#Create Bills <a id="create_bill"></a>
+##Create Bills <a id="create_bill"></a>
 
 _once rommates are created by the treasurer bills can be assigned to them_
 
-##POST `/bills/create`
+###POST `/bills/create`
 
 Only treasurers can create bills
 
@@ -115,9 +120,9 @@ If bill is created you will receive a status code 201 and
 	"due_date": "2012-03-27 23:53:38 UTC"
 	}
 ```
-#Edit Bills <a id="edit_bill"></a>
+##Edit Bills <a id="edit_bill"></a>
 
-## PUT `/bills/:id`
+###PUT `/bills/:id`
 
 **Params**
 
@@ -128,13 +133,13 @@ If bill is created you will receive a status code 201 and
 * `paid:` A `boolean` marking wheather or not the bill has been paid
 * `assignee:` A roomate who is contributing to this bill
 
-#See a treasurers roomates
+##See a treasurers roommates <a id="rommates"></a>
 
-## GET /bills/:treasure_id
+###GET `/roomates/:treasure_id`
 
 **Params**
 
-`treasurer_id:` The id of the treasurer the roomate is associated with `integer:`
+* `treasurer_id:` The id of the treasurer the roomate is associated with `integer:`
 
 ###This will return an array of hashes
 
@@ -160,7 +165,7 @@ If bill is created you will receive a status code 201 and
 
 There are 3 methods to search for bills
 
-## GET /bills/:treasurer_id 
+## GET /bills/:treasurer_id <a id="all_bills"></a>
 
 **Params**
 
@@ -191,7 +196,7 @@ There are 3 methods to search for bills
 ]
 ```
 
-## GET /bills/assignee/:assignee
+## GET /bills/assignee/:assignee <a id="rommates_bills"></a>
 
 **Params**
 
