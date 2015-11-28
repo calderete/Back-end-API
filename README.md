@@ -5,22 +5,26 @@
 This is the API for a web application that facilitates the splitting up of bills between roommates.  The person whos name is on the bill can register as a treasurer.  They can then creat roomates and assign portions (or total amounts) of bills to them with apllicable due dates.  Anyone using this API has the option of searching by bill and by asignee.
 
 #Table of Contents
-* [Authentication](#authenticate)
+1. [Authentication](#authenticate)
+2. [Create Treasurer](#register)
+3. [Create Roommates](#roommate)
+4. [Create Bills](#create_bill)
 * [Get Single Bill](#single_bill)
+
 ##Authentication <a id="authenticate"></a>
 ### The authentication token must be passed in the headers as access_token
 
-#Register Treasurers Account
+##Register Treasurers Account <a id="register"></a>
 
-##Post/treasurers
+###POST '/treasurers'
 
 **Params**
 
-`living_space`: The name of the living space
-`username`: A username must be unique
-`name`: Treasurers first name and last name
-`email`: An email must be unique and have an @ symbol followed by a "."
-`password`: A password must be at least 8 characters
+- `living_space`: The name of the living space
+- `username`: A username must be unique
+- `name`: Treasurers first name and last name
+- `email`: An email must be unique and have an @ symbol followed by a "."
+- `password`: A password must be at least 8 characters
 
 **Response**
 
@@ -44,11 +48,11 @@ If the treasurer could not be created you should receive status code 422 and
 	"Email has already been taken", Username has already been taken]
 }
 
-##Create Roomates
+##Create Roomates <a id="rommate"></a>
 
-###POST/roomates
+###POST '/roomates'
 
-Only treasurers can create roomates
+_Only treasurers can create roomates_
 
 **Params**
 
@@ -56,7 +60,7 @@ Only treasurers can create roomates
 `name`: Treasurers first name and last name
 `email`: An email must be unique and have an @ symbol followed by a "."
 `password`: A password must be at least 8 character
-'treasurer_id`: The id of the treasurer that the roomate pays too 
+'treasurer_id`: The id of the treasurer that the roommate pays too 
 
 ```
 
@@ -79,9 +83,11 @@ If the roomate could not be created you should receive status code 422 and
 	"Email has already been taken", Username has already been taken]
 }
 
-#Create Bills
+#Create Bills <a id="create_bill"></a>
 
-##POST/bills/create
+_once rommates are created by the treasurer bills can be assigned to them
+
+##POST '/bills/create'
 
 Only treasurers can create bills
 
